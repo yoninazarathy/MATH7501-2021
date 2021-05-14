@@ -1,0 +1,640 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24864,        632]
+NotebookOptionsPosition[     22107,        580]
+NotebookOutlinePosition[     22650,        600]
+CellTagsIndexPosition[     22607,        597]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MATH7501 Practical 10 (Week 11), Semester 1-2021", "Title",
+ CellChangeTimes->{{3.8232953177302637`*^9, 3.823295321566573*^9}, {
+   3.823815899618079*^9, 3.823815908976886*^9}, {3.82442079676298*^9, 
+   3.8244207973973227`*^9}, 3.825027329341906*^9, {3.8275028188423347`*^9, 
+   3.8275028385606127`*^9}, {3.8280818332839317`*^9, 3.828081838634077*^9}, {
+   3.828706848454865*^9, 3.828706854015409*^9}, {3.829317793169958*^9, 
+   3.829317798300027*^9}, {3.829918730740587*^9, 3.829918735048275*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24,
+ FontWeight->"Bold",
+ FontTracking->"Plain",
+ FontColor->RGBColor[
+  0.792156862745098, 0.25882352941176473`, 
+   0.],ExpressionUUID->"c4a4bed5-cc61-406d-82a9-cc66b95a62cb"],
+
+Cell["Topic: Sequences & Series, Limits and Derivatives", "Subtitle",
+ CellChangeTimes->{{3.823815912816876*^9, 3.823815921968671*^9}, {
+  3.823815974358356*^9, 3.8238159885974503`*^9}, {3.8245815714435387`*^9, 
+  3.824581573079171*^9}, {3.824850543407894*^9, 3.8248505495273657`*^9}, {
+  3.824850633841268*^9, 3.824850649152347*^9}, {3.8250274002069983`*^9, 
+  3.8250274029748325`*^9}, {3.825692608413351*^9, 3.825692678259256*^9}, {
+  3.8275028906715097`*^9, 3.827502901415741*^9}, {3.82927592408081*^9, 
+  3.829275945984771*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->18,
+ FontWeight->"Normal",
+ FontColor->RGBColor[
+  0., 0., 0.],ExpressionUUID->"b01d6254-f54a-47cb-96bd-73e3ab736407"],
+
+Cell[TextData[{
+ StyleBox["Author:  Aminath Shausan",
+  FontSize->18],
+ "\n",
+ StyleBox["Date: 14-05-2021",
+  FontSize->18]
+}], "Text",
+ CellChangeTimes->{{3.823815760557787*^9, 3.823815803123312*^9}, {
+  3.823854815713891*^9, 3.8238548159247804`*^9}, {3.824420805923258*^9, 
+  3.824420808082913*^9}, {3.8250273438858595`*^9, 3.825027345886772*^9}, {
+  3.825692681914785*^9, 3.825692684034705*^9}, {3.82750290633571*^9, 
+  3.827502920180365*^9}, {3.8280818448739758`*^9, 3.8280818576770287`*^9}, {
+  3.82870686131209*^9, 3.8287068771572104`*^9}, {3.8292758995366087`*^9, 
+  3.829275917225048*^9}, {3.8299187394560347`*^9, 3.829918740735902*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->16,
+ FontWeight->"Normal",
+ FontColor->RGBColor[
+  0., 0., 0.],ExpressionUUID->"f7e6b666-5afa-49a7-a7d5-67127ea08c53"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pre-Tutorial Activity", "Title",
+ CellChangeTimes->{{3.8232953177302637`*^9, 3.823295321566573*^9}, {
+   3.823815899618079*^9, 3.823815908976886*^9}, {3.82442079676298*^9, 
+   3.8244207973973227`*^9}, 3.825027329341906*^9, {3.825180748225769*^9, 
+   3.8251807602356987`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24,
+ FontWeight->"Bold",
+ FontTracking->"Plain",
+ FontColor->RGBColor[
+  0.792156862745098, 0.25882352941176473`, 
+   0.],ExpressionUUID->"753d4ac7-bed7-4ca3-beac-ff8be345beb9"],
+
+Cell[TextData[{
+ "Students must have familiarised themselves with units 5 to 8 contents  of \
+the ",
+ ButtonBox["reading materials",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://courses.smp.uq.edu.au/MATH7501/2021/math7501.pdf"], None},
+  ButtonNote->"https://courses.smp.uq.edu.au/MATH7501/2021/math7501.pdf"],
+ " for ",
+ ButtonBox["MATH7501",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://courses.smp.uq.edu.au/MATH7501/2021/"], None},
+  ButtonNote->"https://courses.smp.uq.edu.au/MATH7501/2021/"]
+}], "Item",
+ CellChangeTimes->{
+  3.823816009513064*^9, {3.823816121922467*^9, 3.823816145251683*^9}, {
+   3.823816234235825*^9, 3.823816243673905*^9}, {3.823828185640872*^9, 
+   3.823828196345123*^9}, {3.824425348050564*^9, 3.8244253707123938`*^9}, {
+   3.824590033050641*^9, 3.824590058584783*^9}, {3.82485055568703*^9, 
+   3.824850574668151*^9}, {3.8250273527514486`*^9, 3.825027353070806*^9}, {
+   3.8250273885258293`*^9, 3.825027417342843*^9}, {3.8250274476591997`*^9, 
+   3.8250274476601973`*^9}, {3.825027482126749*^9, 3.825027482128942*^9}, {
+   3.8256927131066933`*^9, 3.8256927276722727`*^9}, {3.827502926028287*^9, 
+   3.8275029409636307`*^9}, {3.828706883885602*^9, 3.828706890877721*^9}, {
+   3.829317916041101*^9, 3.829317916653667*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->16,
+ FontWeight->"Normal",
+ FontColor->RGBColor[
+  0., 0., 0.],ExpressionUUID->"18e56f00-2f8e-4628-96b6-7bf779fa2390"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Resources", "Title",
+ CellChangeTimes->{{3.8232953177302637`*^9, 3.823295321566573*^9}, {
+   3.823815899618079*^9, 3.823815908976886*^9}, {3.82442079676298*^9, 
+   3.8244207973973227`*^9}, 3.825027329341906*^9, {3.825180748225769*^9, 
+   3.8251807602356987`*^9}, {3.825692790741852*^9, 3.825692793541629*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24,
+ FontWeight->"Bold",
+ FontTracking->"Plain",
+ FontColor->RGBColor[
+  0.792156862745098, 0.25882352941176473`, 
+   0.],ExpressionUUID->"4c78c206-7785-493f-862c-6a949910e79a"],
+
+Cell["Chapters 5 to 8 of ", "Item",
+ CellChangeTimes->{{3.82381699816298*^9, 3.823817001765641*^9}, 
+   3.82442533966638*^9, {3.8250274907033176`*^9, 3.82502751358295*^9}, {
+   3.825122830689027*^9, 3.825122832113483*^9}, {3.825692799975967*^9, 
+   3.825692824484638*^9}, {3.82569373432946*^9, 3.8256937472584543`*^9}, {
+   3.8256937955054092`*^9, 3.82569380443239*^9}, 3.827502949123035*^9, {
+   3.827519369749716*^9, 3.827519374364423*^9}, {3.8276954009751587`*^9, 
+   3.827695424824877*^9}, 3.828081877045136*^9, {3.828116020513652*^9, 
+   3.8281160336008453`*^9}, {3.828706899828189*^9, 3.8287069038771887`*^9}, {
+   3.828712758978889*^9, 3.8287127589790897`*^9}, {3.829317927901675*^9, 
+   3.829317928524456*^9}, 3.8299187609764147`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->16,
+ FontWeight->"Normal",
+ FontColor->RGBColor[
+  0., 0., 0.],ExpressionUUID->"bfb39f1d-883f-401d-a922-d3a202f19330"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Section 1: Quiz 2", "Title",
+ CellChangeTimes->{{3.8232953177302637`*^9, 3.823295321566573*^9}, {
+   3.823815899618079*^9, 3.823815908976886*^9}, {3.82442079676298*^9, 
+   3.8244207973973227`*^9}, 3.825027329341906*^9, {3.825180785481494*^9, 
+   3.825180799505458*^9}, {3.8256936851395607`*^9, 3.8256936865069017`*^9}, {
+   3.825693826056815*^9, 3.8256938508632507`*^9}, {3.8275030022191963`*^9, 
+   3.827503008281402*^9}, 3.827695494489986*^9, {3.827695560389378*^9, 
+   3.827695577811364*^9}, {3.82808189587316*^9, 3.828081918279017*^9}, {
+   3.828706985700077*^9, 3.828706994258334*^9}, {3.829318041338483*^9, 
+   3.829318042347213*^9}, {3.829918767742942*^9, 3.829918779606619*^9}, {
+   3.8299188868278017`*^9, 3.829918887987062*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24,
+ FontWeight->"Bold",
+ FontTracking->"Plain",
+ FontColor->RGBColor[
+  0.792156862745098, 0.25882352941176473`, 
+   0.],ExpressionUUID->"a9e3a925-f0b2-4726-b467-5535427187ba"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Do", " ", 
+   ButtonBox[
+    RowBox[{"Quiz", " ", "2"}],
+    BaseStyle->"Hyperlink",
+    ButtonData->{
+      URL["https://courses.smp.uq.edu.au/MATH7501/2021/Quiz2.pdf"], None},
+    ButtonNote->"https://courses.smp.uq.edu.au/MATH7501/2021/Quiz2.pdf"], " ",
+    "of", " ", "Sem1"}], ",", " ", "2021"}]], "Text",
+ CellChangeTimes->{{3.827695575143412*^9, 3.827695603746922*^9}, {
+   3.827695634656095*^9, 3.827695819818081*^9}, {3.82769586932758*^9, 
+   3.827695901213187*^9}, {3.827695957996285*^9, 3.8276959901727877`*^9}, {
+   3.827696055953548*^9, 3.827696136834682*^9}, {3.827696214391509*^9, 
+   3.827696272699548*^9}, {3.827696335013029*^9, 3.827696580038514*^9}, 
+   3.8276967652882357`*^9, 3.827696901593527*^9, {3.8276969323064003`*^9, 
+   3.8276969323079367`*^9}, {3.827697081297494*^9, 3.827697183543254*^9}, {
+   3.8276972260351257`*^9, 3.827697238730343*^9}, {3.827697277760971*^9, 
+   3.827697324342305*^9}, {3.82769738721844*^9, 3.827697397167445*^9}, {
+   3.828081927462977*^9, 3.82808194504142*^9}, {3.828082000458919*^9, 
+   3.8280820004608583`*^9}, {3.828082035065184*^9, 3.828082344992043*^9}, {
+   3.8280854046398087`*^9, 3.828085406108572*^9}, {3.828707003855589*^9, 
+   3.828707029341281*^9}, {3.829318049050255*^9, 3.8293180532913103`*^9}, 
+   3.829318198692254*^9, 3.8293193206520452`*^9, {3.8299188952392483`*^9, 
+   3.8299189370774612`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->16,
+ FontWeight->"Regular",ExpressionUUID->"a1cb186e-e912-4d55-8a5c-ea0915b7de8c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Section 2: Exponential Distribution", "Title",
+ CellChangeTimes->{{3.8232953177302637`*^9, 3.823295321566573*^9}, {
+   3.823815899618079*^9, 3.823815908976886*^9}, {3.82442079676298*^9, 
+   3.8244207973973227`*^9}, 3.825027329341906*^9, {3.825180785481494*^9, 
+   3.825180799505458*^9}, {3.8256936851395607`*^9, 3.8256936865069017`*^9}, {
+   3.825693826056815*^9, 3.8256938508632507`*^9}, {3.8275030022191963`*^9, 
+   3.827503008281402*^9}, 3.827695494489986*^9, {3.827695560389378*^9, 
+   3.827695577811364*^9}, {3.82808189587316*^9, 3.828081918279017*^9}, {
+   3.828089486574399*^9, 3.828089497869008*^9}, {3.828707412035345*^9, 
+   3.828707423186727*^9}, {3.829318446911251*^9, 3.8293184479983397`*^9}, {
+   3.8299254344440536`*^9, 3.829925446923087*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24,
+ FontWeight->"Bold",
+ FontTracking->"Plain",
+ FontColor->RGBColor[
+  0.792156862745098, 0.25882352941176473`, 
+   0.],ExpressionUUID->"ec92e72d-4aa9-4689-b418-ae96b6cc6eca"],
+
+Cell["\<\
+In probability theory and statistics, the exponential distribution is a \
+continuous distribution that is commonly used to measure the expected time \
+for an event to occur. For example,\
+\>", "Text",
+ CellChangeTimes->{{3.82992589697668*^9, 3.8299259491083183`*^9}, {
+  3.8299260410994997`*^9, 
+  3.829926066992838*^9}},ExpressionUUID->"eb969b8b-de95-40bc-a048-\
+c395b2734832"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "in ",
+ StyleBox["physics",
+  FontWeight->"Bold"],
+ " it is often used to measure radioactive decay,"
+}], "Item",
+ CellChangeTimes->{{3.829926080876011*^9, 
+  3.829926092350748*^9}},ExpressionUUID->"02348819-1071-48ae-88ae-\
+1356f7117e9c"],
+
+Cell[TextData[{
+ "in ",
+ StyleBox["engineering",
+  FontWeight->"Bold"],
+ " it is used to measure the time associated with receiving a defective part \
+on an assembly line,"
+}], "Item",
+ CellChangeTimes->{
+  3.829926080876011*^9, {3.829926112024434*^9, 
+   3.829926112029139*^9}},ExpressionUUID->"54924a8c-4075-4691-9506-\
+4cf1d8e2815e"],
+
+Cell[TextData[{
+ " in ",
+ StyleBox["finance",
+  FontWeight->"Bold"],
+ " it is often used to measure the likelihood of the next default for a \
+portfolio of financial assets.I"
+}], "Item",
+ CellChangeTimes->{
+  3.829926080876011*^9, {3.8299261130466633`*^9, 
+   3.829926136603238*^9}},ExpressionUUID->"3f0343e8-5d13-462b-8c72-\
+cec395dd7364"],
+
+Cell["\<\
+it can also be used to measure the likelihood of incurring a specified number \
+of defaults within a specified time period.\
+\>", "Item",
+ CellChangeTimes->{
+  3.829926080876011*^9, {3.8299261130466633`*^9, 3.8299261382794533`*^9}, 
+   3.829927407095303*^9},ExpressionUUID->"6b7268d4-c0f3-4255-aaec-\
+548ad6448631"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "If", " ", "a", " ", "random", " ", "variable", " ", "has", " ", "the", 
+      " ", "exponential", " ", "distribution", " ", "with", " ", "parameter", 
+      " ", "lambda"}], ",", " ", 
+     RowBox[{
+      RowBox[{"we", " ", "write", " ", "it", " ", "as", " ", 
+       RowBox[{"X", " ", "~", " ", "Exp"}], 
+       RowBox[{
+        RowBox[{"(", "\[Lambda]", ")"}], ".", " ", "Here"}], " ", 
+       "\[Lambda]"}], ">", 
+      RowBox[{
+      "0", " ", "is", " ", "called", " ", "the", " ", "rate", " ", 
+       "parameter", " ", "and", " ", "X", " ", "takes", " ", "values", " ", 
+       "in", " ", "the", " ", 
+       RowBox[{"interval", " ", "[", 
+        RowBox[{"0", ",", " ", "\[Infinity]"}]}]}]}]}], ")"}], ".", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "The"}], " ", 
+  StyleBox["probability",
+   FontWeight->"Bold"], 
+  StyleBox[" ",
+   FontWeight->"Bold"], 
+  StyleBox["density",
+   FontWeight->"Bold"], 
+  StyleBox[" ",
+   FontWeight->"Bold"], 
+  StyleBox["function",
+   FontWeight->"Bold"], 
+  StyleBox[" ",
+   FontWeight->"Bold"], 
+  RowBox[{"(", "pdf", ")"}], " ", "of", " ", "an", " ", "exponential", " ", 
+  "distribution", " ", "is"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["f", "X"], 
+   RowBox[{"(", "\[Lambda]", ")"}]}], " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{GridBox[{
+       {
+        RowBox[{
+         SuperscriptBox["\[Lambda]e", 
+          RowBox[{"-", "\[Lambda]x"}]], " ", ",", " ", 
+         RowBox[{"x", " ", "\[GreaterEqual]", "0"}]}]},
+       {
+        RowBox[{"0", ",", "         ", 
+         RowBox[{"x", " ", "<", "0"}]}]}
+      }], "\n", "The", " ", 
+     StyleBox["cumulative",
+      FontWeight->"Bold"], 
+     StyleBox[" ",
+      FontWeight->"Bold"], 
+     StyleBox["distribution",
+      FontWeight->"Bold"], 
+     StyleBox[" ",
+      FontWeight->"Bold"], 
+     StyleBox["function",
+      FontWeight->"Bold"], " ", 
+     RowBox[{"(", "cdf", ")"}], "of", " ", "X", " ", "is", " ", 
+     "\[IndentingNewLine]", 
+     SubscriptBox["F", "X"], 
+     RowBox[{"(", "\[Lambda]", ")"}]}], "=", " ", 
+    RowBox[{
+     RowBox[{"P", 
+      RowBox[{"(", 
+       RowBox[{"X", "\[LessEqual]", " ", "x"}], ")"}]}], " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{GridBox[{
+             {
+              RowBox[{
+               RowBox[{"1", "-", 
+                SuperscriptBox["e", 
+                 RowBox[{"-", "\[Lambda]x"}]]}], " ", ",", " ", 
+               RowBox[{"x", " ", "\[GreaterEqual]", "0"}]}]},
+             {
+              RowBox[{"0", ",", "             ", 
+               RowBox[{"x", " ", "<", "0"}]}]}
+            }], "   ", "--"}], "--"}], "--"}], "--"}], 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", " ", "Eq"}]}]}]}]}]}], 
+       RowBox[{"(", "1", ")"}]}]}]}]}]}]}]}], "Text",
+ CellChangeTimes->{{3.829926196028688*^9, 3.829926241492663*^9}, {
+   3.829926278791737*^9, 3.829926283937187*^9}, 3.829926792221011*^9, {
+   3.8299272544692583`*^9, 3.829927507192334*^9}, {3.8299275519529047`*^9, 
+   3.829927748605792*^9}, {3.829927804330905*^9, 3.829927845752111*^9}, {
+   3.829928287486211*^9, 3.829928288910129*^9}, {3.829928720449314*^9, 
+   3.829928752584982*^9}},ExpressionUUID->"e9d7b61e-01a5-4305-92af-\
+b91f85780443"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+  "Relationship", " ", "between", " ", "pdf", " ", "and", " ", "cdf", " ", 
+   "of", " ", "a", " ", "continuous", " ", "random", " ", "variable"}],
+  FontWeight->"Bold"], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"In", " ", "general"}], ",", " ", 
+   RowBox[{
+   "suppose", " ", "X", " ", "is", " ", "a", " ", "continuous", " ", "random",
+     " ", "variable", " ", "defined", " ", "on", " ", "the", " ", "entire", 
+    " ", "real", " ", "line"}], ",", " ", 
+   RowBox[{
+   "then", " ", "we", " ", "compute", " ", "the", " ", "probability", " ", 
+    "of", " ", "X", " ", "falling", " ", "within", " ", "a", " ", "given", 
+    " ", "interval"}], ",", " ", 
+   RowBox[{"[", 
+    RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+   RowBox[{
+   "using", " ", "a", " ", "definite", " ", "integral", " ", "involving", " ",
+     "its", " ", "pdf"}], ",", " ", 
+   RowBox[{
+    SubscriptBox["f", "X"], 
+    RowBox[{
+     RowBox[{"(", "x", ")"}], ".", " ", "That"}], " ", "is"}]}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", 
+    RowBox[{"(", 
+     RowBox[{"a", "\[LessEqual]", " ", "X", "\[LessEqual]", "b"}], ")"}]}], 
+   " ", "=", " ", 
+   RowBox[{
+    SubsuperscriptBox["\[Integral]", "a", "b"], 
+    RowBox[{
+     SubscriptBox["f", "X"], 
+     RowBox[{"(", "x", ")"}], 
+     RowBox[{"dx", ".", "\[IndentingNewLine]", "The"}], " ", "cumulative", 
+     " ", "distribution", " ", "function", " ", 
+     RowBox[{"(", "cdf", ")"}], "is", " ", "defined", " ", "as"}]}]}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["F", "X"], 
+    RowBox[{"(", "x", ")"}]}], " ", "=", " ", 
+   RowBox[{
+    RowBox[{"P", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "\[Infinity]"}], "\[LessEqual]", " ", "X", "\[LessEqual]",
+        "x"}], ")"}]}], " ", "=", " ", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "\[Infinity]"}], "x"], 
+     RowBox[{
+      SubscriptBox["f", "X"], 
+      RowBox[{"(", "t", ")"}], 
+      RowBox[{"dt", ".", "\[IndentingNewLine]", "If"}], " ", 
+      SubscriptBox["f", "X"], 
+      RowBox[{"(", "x", ")"}], " ", "is", " ", "continuous", " ", "at", " ", 
+      "x"}]}]}]}], ",", " ", 
+  RowBox[{
+   RowBox[{"then", " ", "we", " ", "have", " ", 
+    SubscriptBox["f", "X"], 
+    RowBox[{"(", "x", ")"}]}], " ", "=", " ", 
+   RowBox[{
+    FractionBox["d", "dx"], 
+    SubscriptBox["F", "X"], 
+    RowBox[{
+     RowBox[{"(", "x", ")"}], ".", " ", "Intuitively"}], " ", "this", " ", 
+    "means", " ", 
+    SubscriptBox["f", "X"], 
+    RowBox[{"(", "x", ")"}], "dx", " ", "is", " ", "the", " ", "probability", 
+    " ", "of", " ", "X", " ", "falling", " ", "within", " ", "the", " ", 
+    "infinitesimal", " ", 
+    RowBox[{"interval", " ", "[", 
+     RowBox[{"x", ",", " ", 
+      RowBox[{"x", "+", "dx"}]}], "]"}]}]}]}]}], "Text",
+ CellChangeTimes->{{3.8299278508968163`*^9, 3.829927852543717*^9}, {
+  3.829927893981723*^9, 3.82992818511959*^9}, {3.829928222459415*^9, 
+  3.829928597700203*^9}, {3.8299287882718353`*^9, 3.829928812213564*^9}, {
+  3.829928905662269*^9, 
+  3.8299289127494173`*^9}},ExpressionUUID->"99d12478-e613-4dee-a237-\
+80aefb0b5482"],
+
+Cell[TextData[{
+ StyleBox["Q1) ",
+  FontWeight->"Bold"],
+ "Use integration to compute the cdf of X~Exp (\[Lambda]) as given in Eq (1)"
+}], "Text",
+ CellChangeTimes->{{3.829927796611451*^9, 3.829927797350996*^9}, {
+   3.8299286032598886`*^9, 3.829928711470086*^9}, {3.829928759392478*^9, 
+   3.829928771574741*^9}, {3.829929050494897*^9, 3.829929052582199*^9}, 
+   3.8299346843920393`*^9, {3.829934749253644*^9, 
+   3.829934754948875*^9}},ExpressionUUID->"aa5c5492-4830-4ba0-a8b7-\
+c2dba6fcca86"],
+
+Cell[TextData[{
+ StyleBox["Q2)",
+  FontWeight->"Bold"],
+ " Plot the pdf and cdf of X~Exp (\[Lambda]) for \[Lambda] = 0.5, 1, 1.5, 2"
+}], "Text",
+ CellChangeTimes->{{3.82992906488649*^9, 3.8299291458998938`*^9}, 
+   3.829934681790066*^9, {3.829934761388658*^9, 
+   3.829934776636204*^9}},ExpressionUUID->"44678fa5-9e27-4b48-9953-\
+48920507d911"],
+
+Cell[BoxData[{
+ RowBox[{
+  StyleBox[
+   RowBox[{
+   "Mean", " ", "and", " ", "variance", " ", "of", " ", "a", " ", 
+    "continuous", " ", "random", " ", "variable"}],
+   FontWeight->"Bold"], 
+  StyleBox[" ",
+   FontWeight->"Bold"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "suppose", " ", "X", " ", "is", " ", "a", " ", "continuous", " ", "random", 
+   " ", "variable", " ", "defined", " ", "on", " ", "the", " ", "entire", " ",
+    "real", " ", "line", " ", "with", " ", "pdf", " ", 
+   SubscriptBox["f", "X"], 
+   RowBox[{"(", "x", ")"}]}], ",", " ", 
+  RowBox[{"then", " ", "its", " ", "mean", " ", 
+   RowBox[{"(", 
+    RowBox[{"the", " ", "expected", " ", "value"}], ")"}], " ", "and", " ", 
+   "variance", " ", "are", " ", "computed", " ", "as", " ", 
+   "follows"}]}], "\[IndentingNewLine]", 
+ RowBox[{" ", 
+  RowBox[{"\[Mu]", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"E", 
+     RowBox[{"(", "X", ")"}]}], "  ", "=", " ", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+     RowBox[{
+      SubscriptBox["xf", "X"], 
+      RowBox[{"(", "x", ")"}], "dx"}]}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  SuperscriptBox["\[Sigma]", "2"], "=", " ", 
+  RowBox[{
+   RowBox[{"var", 
+    RowBox[{"(", "X", ")"}]}], " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+     RowBox[{
+      SuperscriptBox["x", "2"], 
+      SubscriptBox["f", "X"], 
+      RowBox[{"(", "x", ")"}], "dx"}]}], " ", "-", " ", 
+    SuperscriptBox["\[Mu]", "2"]}]}]}]}], "Text",
+ CellChangeTimes->{{3.829928889233341*^9, 3.8299290294871473`*^9}, {
+   3.829929252155066*^9, 3.829929369266747*^9}, 3.8299295353732*^9, {
+   3.8299299014027023`*^9, 3.829929949238809*^9}, 
+   3.829929995627597*^9},ExpressionUUID->"6b41715b-9c16-47bb-8481-\
+d2b8eb254837"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"Q3", ")"}],
+    FontWeight->"Bold"], " ", "Show", " ", "that", "  ", "the", " ", "mean", 
+   " ", "of", " ", 
+   RowBox[{"X", " ", "~", " ", "Exp"}], 
+   RowBox[{"(", "\[Lambda]", ")"}]}], " ", "=", " ", 
+  FractionBox["1", "\[Lambda]"]}]], "Text",
+ CellChangeTimes->{{3.8299300088399982`*^9, 3.8299300858915863`*^9}, {
+  3.829934608462508*^9, 3.829934690904419*^9}, {3.829934779171953*^9, 
+  3.8299347815743437`*^9}},ExpressionUUID->"7f4dc770-0b9f-4e11-aab4-\
+8263863519fb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    StyleBox["Q5",
+     FontWeight->"Bold"], ")"}], "Show", " ", "that", " ", "the", " ", 
+   "variance", " ", "of", " ", 
+   RowBox[{"X", "~", " ", "Exp"}], 
+   RowBox[{"(", "\[Lambda]", ")"}]}], " ", "=", " ", 
+  FractionBox["1", 
+   SuperscriptBox["\[Lambda]", "2"]]}]], "Text",
+ CellChangeTimes->{
+  3.8299347159996443`*^9, {3.8299347883318167`*^9, 
+   3.829934793795864*^9}},ExpressionUUID->"e930f14c-2259-4e8f-a399-\
+0d55900ebc44"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.829929988955476*^9, 3.829929990568536*^9}, 
+   3.829934696752483*^9},ExpressionUUID->"6eb574f9-8a26-4570-89fc-\
+4f21d4ec4a01"]
+}, Open  ]]
+},
+WindowSize->{1187, 701},
+WindowMargins->{{Automatic, 19}, {-4, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fa126940-8231-40f0-b7f3-4821759659a4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 725, 13, 68, "Title",ExpressionUUID->"c4a4bed5-cc61-406d-82a9-cc66b95a62cb"],
+Cell[1308, 37, 694, 12, 43, "Subtitle",ExpressionUUID->"b01d6254-f54a-47cb-96bd-73e3ab736407"],
+Cell[2005, 51, 807, 18, 60, "Text",ExpressionUUID->"f7e6b666-5afa-49a7-a7d5-67127ea08c53"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2849, 74, 502, 11, 68, "Title",ExpressionUUID->"753d4ac7-bed7-4ca3-beac-ff8be345beb9"],
+Cell[3354, 87, 1440, 30, 32, "Item",ExpressionUUID->"18e56f00-2f8e-4628-96b6-7bf779fa2390"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4831, 122, 536, 11, 68, "Title",ExpressionUUID->"4c78c206-7785-493f-862c-6a949910e79a"],
+Cell[5370, 135, 904, 15, 32, "Item",ExpressionUUID->"bfb39f1d-883f-401d-a922-d3a202f19330"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6311, 155, 965, 17, 68, "Title",ExpressionUUID->"a9e3a925-f0b2-4726-b467-5535427187ba"],
+Cell[7279, 174, 1528, 27, 36, "Text",ExpressionUUID->"a1cb186e-e912-4d55-8a5c-ea0915b7de8c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8844, 206, 985, 17, 68, "Title",ExpressionUUID->"ec92e72d-4aa9-4689-b418-ae96b6cc6eca"],
+Cell[9832, 225, 388, 8, 58, "Text",ExpressionUUID->"eb969b8b-de95-40bc-a048-c395b2734832"],
+Cell[CellGroupData[{
+Cell[10245, 237, 256, 8, 32, "Item",ExpressionUUID->"02348819-1071-48ae-88ae-1356f7117e9c"],
+Cell[10504, 247, 336, 10, 32, "Item",ExpressionUUID->"54924a8c-4075-4691-9506-4cf1d8e2815e"],
+Cell[10843, 259, 341, 10, 32, "Item",ExpressionUUID->"3f0343e8-5d13-462b-8c72-cec395dd7364"],
+Cell[11187, 271, 325, 7, 32, "Item",ExpressionUUID->"6b7268d4-c0f3-4255-aaec-548ad6448631"]
+}, Open  ]],
+Cell[11527, 281, 3445, 99, 225, "Text",ExpressionUUID->"e9d7b61e-01a5-4305-92af-b91f85780443"],
+Cell[14975, 382, 3207, 85, 286, "Text",ExpressionUUID->"99d12478-e613-4dee-a237-80aefb0b5482"],
+Cell[18185, 469, 495, 10, 35, "Text",ExpressionUUID->"aa5c5492-4830-4ba0-a8b7-c2dba6fcca86"],
+Cell[18683, 481, 344, 8, 35, "Text",ExpressionUUID->"44678fa5-9e27-4b48-9953-48920507d911"],
+Cell[19030, 491, 1867, 50, 168, "Text",ExpressionUUID->"6b41715b-9c16-47bb-8481-d2b8eb254837"],
+Cell[20900, 543, 536, 13, 51, "Text",ExpressionUUID->"7f4dc770-0b9f-4e11-aab4-8263863519fb"],
+Cell[21439, 558, 484, 14, 51, "Text",ExpressionUUID->"e930f14c-2259-4e8f-a399-0d55900ebc44"],
+Cell[21926, 574, 165, 3, 35, "Text",ExpressionUUID->"6eb574f9-8a26-4570-89fc-4f21d4ec4a01"]
+}, Open  ]]
+}
+]
+*)
+
